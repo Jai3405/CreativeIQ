@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreativeIQ - Design Intelligence Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .upload-area {
+            transition: all 0.3s ease;
+            border: 2px dashed #cbd5e0;
+        }
+        .upload-area.dragover {
+            border-color: #667eea;
+            background-color: #f7fafc;
+        }
+        .loading-animation {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold">CreativeIQ</h1>
+                    <span class="ml-2 text-sm opacity-80">Design Intelligence Platform</span>
+                </div>
+                <div class="flex space-x-4">
+                    <button class="hover:bg-white hover:bg-opacity-20 px-4 py-2 rounded-lg transition-colors">
+                        API Docs
+                    </button>
+                    <button class="hover:bg-white hover:bg-opacity-20 px-4 py-2 rounded-lg transition-colors">
+                        About
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" x-data="creativeIQApp()">
+        <!-- Hero Section -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                AI-Powered Design Analysis
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Upload your design and get professional-grade feedback on color, typography, layout, and performance potential in under 30 seconds.
+            </p>
+        </div>
+
+        <!-- Upload Section -->
+        <div class="card-shadow bg-white rounded-xl p-8 mb-8">
+            <div class="upload-area rounded-lg p-8 text-center cursor-pointer"
+                 :class="{ 'dragover': isDragOver }"
+                 @dragover.prevent="isDragOver = true"
+                 @dragleave.prevent="isDragOver = false"
+                 @drop.prevent="handleFileDrop($event)"
+                 @click="$refs.fileInput.click()">
+
+                <input type="file"
+                       x-ref="fileInput"
+                       @change="handleFileSelect($event)"
+                       accept="image/*"
+                       class="hidden">
+
+                <div x-show="!selectedFile">
+                    <svg class="mx-auto h-16 w-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                    </svg>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">
+                        Drop your design here or click to upload
+                    </h3>
+                    <p class="text-gray-500">
+                        Supports JPG, PNG, WebP up to 10MB
+                    </p>
+                </div>
+
+                <div x-show="selectedFile" class="flex items-center justify-center space-x-4">
+                    <img x-show="previewUrl" :src="previewUrl" alt="Preview" class="h-20 w-20 object-cover rounded-lg">
+                    <div class="text-left">
+                        <p class="font-medium text-gray-900" x-text="selectedFile?.name"></p>
+                        <p class="text-sm text-gray-500" x-text="formatFileSize(selectedFile?.size)"></p>
+                    </div>
+                    <button @click.stop="clearFile()" class="text-red-500 hover:text-red-700">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Analysis Options -->
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Analysis Type</label>
+                    <select x-model="analysisType" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                        <option value="comprehensive">Comprehensive Analysis</option>
+                        <option value="quick">Quick Scan</option>
+                        <option value="color-only">Color Analysis Only</option>
+                        <option value="typography-only">Typography Only</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Target Platform</label>
+                    <select x-model="targetPlatform" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                        <option value="general">General</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="linkedin">LinkedIn</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="tiktok">TikTok</option>
+                        <option value="web">Website</option>
+                    </select>
+                </div>
+
+                <div class="flex items-end">
+                    <button @click="analyzeDesign()"
+                            :disabled="!selectedFile || isAnalyzing"
+                            :class="{ 'opacity-50 cursor-not-allowed': !selectedFile || isAnalyzing }"
+                            class="w-full gradient-bg text-white py-2 px-4 rounded-lg font-medium hover:opacity-90 transition-opacity">
+                        <span x-show="!isAnalyzing">Analyze Design</span>
+                        <span x-show="isAnalyzing" class="flex items-center justify-center">
+                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Analyzing...
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div x-show="analysisResult" class="space-y-8">
+            <!-- Overall Score -->
+            <div class="card-shadow bg-white rounded-xl p-8">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Design Quality Score</h3>
+                    <div class="relative inline-flex items-center justify-center w-32 h-32">
+                        <svg class="w-32 h-32 transform -rotate-90">
+                            <circle cx="64" cy="64" r="56" stroke="#e5e7eb" stroke-width="8" fill="none"/>
+                            <circle cx="64" cy="64" r="56"
+                                    :stroke-dasharray="`${(analysisResult?.overall_score || 0) * 3.51} 351`"
+                                    stroke="#667eea" stroke-width="8" fill="none"
+                                    stroke-linecap="round"/>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-3xl font-bold text-gray-900" x-text="Math.round(analysisResult?.overall_score || 0)"></span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mt-4" x-text="getScoreDescription(analysisResult?.overall_score)"></p>
+                </div>
+            </div>
+
+            <!-- Detailed Analysis -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Color Analysis -->
+                <div class="card-shadow bg-white rounded-xl p-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                        <span class="w-3 h-3 bg-red-500 rounded-full mr-2"></span>
+                        Color Harmony
+                    </h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Harmony Score</span>
+                            <span class="font-medium" x-text="Math.round(analysisResult?.color_analysis?.harmony_score || 0)"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Accessibility</span>
+                            <span class="font-medium" x-text="Math.round(analysisResult?.color_analysis?.accessibility_score || 0)"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Scheme Type</span>
+                            <span class="font-medium capitalize" x-text="analysisResult?.color_analysis?.color_scheme || 'N/A'"></span>
+                        </div>
+                        <div class="flex space-x-1 mt-3">
+                            <template x-for="color in (analysisResult?.color_analysis?.dominant_colors || []).slice(0, 5)">
+                                <div class="w-6 h-6 rounded-full border-2 border-gray-200" :style="`background-color: ${color}`"></div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Typography -->
+                <div class="card-shadow bg-white rounded-xl p-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                        <span class="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
+                        Typography
+                    </h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Readability</span>
+                            <span class="font-medium" x-text="Math.round(analysisResult?.typography_analysis?.readability_score || 0)"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Font Pairing</span>
+                            <span class="font-medium" x-text="Math.round(analysisResult?.typography_analysis?.font_pairing_score || 0)"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Hierarchy</span>
+                            <span class="font-medium" x-text="Math.round(analysisResult?.typography_analysis?.text_hierarchy_score || 0)"></span>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-3">
+                            <span x-text="(analysisResult?.typography_analysis?.fonts_detected || []).join(', ') || 'No fonts detected'"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layout -->
+                <div class="card-shadow bg-white rounded-xl p-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                        <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                        Layout
+                    </h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Composition</span>
+                            <span class="font-medium" x-text="Math.round(analysisResult?.layout_analysis?.composition_score || 0)"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Balance</span>
+                            <span class="font-medium" x-text="Math.round(analysisResult?.layout_analysis?.balance_score || 0)"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Grid Alignment</span>
+                            <span class="font-medium" x-text="Math.round(analysisResult?.layout_analysis?.grid_alignment || 0)"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">White Space</span>
+                            <span class="font-medium" x-text="Math.round(analysisResult?.layout_analysis?.white_space_usage || 0)"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance -->
+                <div class="card-shadow bg-white rounded-xl p-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                        <span class="w-3 h-3 bg-purple-500 rounded-full mr-2"></span>
+                        Performance
+                    </h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Engagement Score</span>
+                            <span class="font-medium" x-text="Math.round(analysisResult?.performance_prediction?.engagement_score || 0)"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Improvement</span>
+                            <span class="font-medium" x-text="Math.round(analysisResult?.performance_prediction?.improvement_potential || 0) + '%'"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Confidence</span>
+                            <span class="font-medium" x-text="Math.round(analysisResult?.performance_prediction?.confidence_interval || 0) + '%'"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommendations -->
+            <div x-show="analysisResult?.recommendations?.length > 0" class="card-shadow bg-white rounded-xl p-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">Recommendations</h3>
+                <div class="grid gap-4">
+                    <template x-for="(rec, index) in (analysisResult?.recommendations || [])">
+                        <div class="border border-gray-200 rounded-lg p-4 hover:border-purple-300 transition-colors">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-2 mb-2">
+                                        <span class="inline-block px-2 py-1 text-xs font-medium rounded-full"
+                                              :class="{
+                                                'bg-red-100 text-red-800': rec.priority === 'high',
+                                                'bg-yellow-100 text-yellow-800': rec.priority === 'medium',
+                                                'bg-green-100 text-green-800': rec.priority === 'low'
+                                              }"
+                                              x-text="rec.priority + ' priority'"></span>
+                                        <span class="text-sm text-gray-500 capitalize" x-text="rec.category"></span>
+                                    </div>
+                                    <h4 class="font-medium text-gray-900 mb-1" x-text="rec.description"></h4>
+                                    <p class="text-sm text-gray-600" x-text="rec.technical_details"></p>
+                                </div>
+                                <div class="ml-4 text-sm font-medium text-purple-600" x-text="Math.round(rec.impact_score) + '%'"></div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Display -->
+        <div x-show="errorMessage" class="bg-red-50 border border-red-200 rounded-lg p-4 mb-8">
+            <div class="flex items-center">
+                <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <p class="text-red-800" x-text="errorMessage"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mb-4">CreativeIQ - AI-Powered Design Intelligence Platform</p>
+            <p class="text-gray-400 text-sm">
+                Powered by Vision Language Models for professional design analysis
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function creativeIQApp() {
+            return {
+                selectedFile: null,
+                previewUrl: null,
+                isDragOver: false,
+                isAnalyzing: false,
+                analysisResult: null,
+                errorMessage: null,
+                analysisType: 'comprehensive',
+                targetPlatform: 'general',
+
+                handleFileDrop(event) {
+                    this.isDragOver = false;
+                    const files = event.dataTransfer.files;
+                    if (files.length > 0) {
+                        this.setSelectedFile(files[0]);
+                    }
+                },
+
+                handleFileSelect(event) {
+                    const files = event.target.files;
+                    if (files.length > 0) {
+                        this.setSelectedFile(files[0]);
+                    }
+                },
+
+                setSelectedFile(file) {
+                    if (this.validateFile(file)) {
+                        this.selectedFile = file;
+                        this.previewUrl = URL.createObjectURL(file);
+                        this.errorMessage = null;
+                    }
+                },
+
+                validateFile(file) {
+                    const maxSize = 10 * 1024 * 1024; // 10MB
+                    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+
+                    if (!allowedTypes.includes(file.type)) {
+                        this.errorMessage = 'Please upload a valid image file (JPG, PNG, WebP)';
+                        return false;
+                    }
+
+                    if (file.size > maxSize) {
+                        this.errorMessage = 'File size must be less than 10MB';
+                        return false;
+                    }
+
+                    return true;
+                },
+
+                clearFile() {
+                    this.selectedFile = null;
+                    this.previewUrl = null;
+                    this.analysisResult = null;
+                    this.errorMessage = null;
+                },
+
+                formatFileSize(bytes) {
+                    if (!bytes) return '';
+                    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                    const i = Math.floor(Math.log(bytes) / Math.log(1024));
+                    return Math.round(bytes / Math.pow(1024, i) * 100) / 100 + ' ' + sizes[i];
+                },
+
+                async analyzeDesign() {
+                    if (!this.selectedFile) return;
+
+                    this.isAnalyzing = true;
+                    this.errorMessage = null;
+                    this.analysisResult = null;
+
+                    try {
+                        const formData = new FormData();
+                        formData.append('file', this.selectedFile);
+                        formData.append('analysis_type', this.analysisType);
+                        formData.append('target_platform', this.targetPlatform);
+
+                        const response = await fetch('/api/v1/analyze/', {
+                            method: 'POST',
+                            body: formData
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`Analysis failed: ${response.statusText}`);
+                        }
+
+                        this.analysisResult = await response.json();
+                    } catch (error) {
+                        this.errorMessage = error.message || 'Analysis failed. Please try again.';
+                        console.error('Analysis error:', error);
+                    } finally {
+                        this.isAnalyzing = false;
+                    }
+                },
+
+                getScoreDescription(score) {
+                    if (!score) return 'No score available';
+                    if (score >= 90) return 'Excellent - Professional quality design';
+                    if (score >= 80) return 'Very Good - Strong design with minor improvements possible';
+                    if (score >= 70) return 'Good - Solid design with some areas for improvement';
+                    if (score >= 60) return 'Fair - Decent design but needs several improvements';
+                    return 'Needs Improvement - Consider major design revisions';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
