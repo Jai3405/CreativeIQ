@@ -49,8 +49,8 @@ class Settings(BaseSettings):
     ENV: Optional[str] = None
 
     # Live Visual RAG API Tokens - Real-time Design Search
-    DRIBBBLE_ACCESS_TOKEN: Optional[str] = None  # Public API for design search
-    BEHANCE_API_KEY: Optional[str] = None        # Adobe API for project search
+    DRIBBBLE_ACCESS_TOKEN: Optional[str] = None  # Design community for professional work
+    UNSPLASH_ACCESS_KEY: Optional[str] = None    # High-quality creative imagery
 
     # Deprecated: Social Media APIs (replaced by Live RAG)
     # INSTAGRAM_ACCESS_TOKEN: Optional[str] = None

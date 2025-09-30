@@ -104,16 +104,16 @@ async def main():
     print("-" * 40)
 
     print(f"Dribbble API configured: {'✅' if rag.dribbble_token else '❌ Token needed'}")
-    print(f"Behance API configured: {'✅' if rag.behance_key else '❌ API key needed'}")
+    print(f"Unsplash API configured: {'✅' if rag.unsplash_key else '❌ Access key needed'}")
 
-    if not rag.dribbble_token and not rag.behance_key:
+    if not rag.dribbble_token and not rag.unsplash_key:
         print(f"\n⚠️ No API tokens configured!")
         print(f"Add to .env file:")
         print(f"DRIBBBLE_ACCESS_TOKEN=your_dribbble_token")
-        print(f"BEHANCE_API_KEY=your_behance_api_key")
+        print(f"UNSPLASH_ACCESS_KEY=your_unsplash_access_key")
         print(f"\n📚 To get tokens:")
         print(f"• Dribbble: https://dribbble.com/account/applications/new")
-        print(f"• Behance: https://www.behance.net/dev/api/register")
+        print(f"• Unsplash: https://unsplash.com/oauth/applications")
     else:
         print(f"\n✅ Ready for live design search!")
 
@@ -134,7 +134,7 @@ async def main():
     print(f"\n🔧 Architecture Highlights:")
     print(f"  • VLM analysis for style/color/type extraction")
     print(f"  • Smart query generation from design features")
-    print(f"  • Async parallel API searches (Dribbble + Behance)")
+    print(f"  • Async parallel API searches (Dribbble + Unsplash)")
     print(f"  • Real-time similarity ranking")
     print(f"  • Comparative analysis with professional designs")
 
