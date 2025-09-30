@@ -8,11 +8,13 @@ import os
 import cv2
 
 from app.models.schemas import ColorPalette, TypographyAnalysis, LayoutAnalysis
+from app.ml.production_predictor import production_predictor
 
 
 class PerformancePredictor:
     """
     ML-based performance prediction for design engagement
+    Now uses production-trained models when available, falls back to synthetic models
     """
 
     def __init__(self):
@@ -104,7 +106,19 @@ class PerformancePredictor:
     ) -> Dict[str, Any]:
         """
         Comprehensive performance prediction using all analysis components
+        Uses production-trained models when available
         """
+        try:
+            # Try to use production predictor with trained models
+            if hasattr(production_predictor, 'models') and production_predictor.models:
+                return await production_predictor.predict_comprehensive(
+                    image, target_platform, color_analysis, typography_analysis, layout_analysis
+                )
+        except Exception as e:
+            # Fall back to synthetic prediction
+            pass
+
+        # Fallback to original synthetic prediction
         # Extract comprehensive features
         features = self._extract_comprehensive_features(
             image, color_analysis, typography_analysis, layout_analysis

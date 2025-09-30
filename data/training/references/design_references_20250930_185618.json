@@ -1,0 +1,864 @@
+[
+  {
+    "id": "pinterest_graphic_design_1",
+    "platform": "pinterest",
+    "category": "graphic design",
+    "image_url": "https://i.pinimg.com/originals/sample_graphic design_1.jpg",
+    "title": "Stunning graphic design inspiration",
+    "description": "Beautiful example of graphic design with modern aesthetics",
+    "board_name": "graphic design Collection",
+    "pin_stats": {
+      "saves": 170,
+      "comments": 9,
+      "reactions": 28
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#333",
+        "#FFF"
+      ],
+      "style": "detailed",
+      "composition": "asymmetric"
+    },
+    "design_relevance": 0.8500000000000001,
+    "trending_score": 115,
+    "reference_collected": "2025-09-30T18:56:18.601157",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_graphic_design_2",
+    "platform": "pinterest",
+    "category": "graphic design",
+    "image_url": "https://i.pinimg.com/originals/sample_graphic design_2.jpg",
+    "title": "Stunning graphic design inspiration",
+    "description": "Beautiful example of graphic design with modern aesthetics",
+    "board_name": "graphic design Collection",
+    "pin_stats": {
+      "saves": 190,
+      "comments": 10,
+      "reactions": 31
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#FF6B6B",
+        "#4ECDC4"
+      ],
+      "style": "detailed",
+      "composition": "centered"
+    },
+    "design_relevance": 0.9,
+    "trending_score": 130,
+    "reference_collected": "2025-09-30T18:56:18.601183",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_graphic_design_3",
+    "platform": "pinterest",
+    "category": "graphic design",
+    "image_url": "https://i.pinimg.com/originals/sample_graphic design_3.jpg",
+    "title": "Stunning graphic design inspiration",
+    "description": "Beautiful example of graphic design with modern aesthetics",
+    "board_name": "graphic design Collection",
+    "pin_stats": {
+      "saves": 210,
+      "comments": 11,
+      "reactions": 34
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#333",
+        "#FFF"
+      ],
+      "style": "minimalist",
+      "composition": "asymmetric"
+    },
+    "design_relevance": 0.8,
+    "trending_score": 145,
+    "reference_collected": "2025-09-30T18:56:18.601190",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_graphic_design_4",
+    "platform": "pinterest",
+    "category": "graphic design",
+    "image_url": "https://i.pinimg.com/originals/sample_graphic design_4.jpg",
+    "title": "Stunning graphic design inspiration",
+    "description": "Beautiful example of graphic design with modern aesthetics",
+    "board_name": "graphic design Collection",
+    "pin_stats": {
+      "saves": 230,
+      "comments": 12,
+      "reactions": 37
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#FF6B6B",
+        "#4ECDC4"
+      ],
+      "style": "detailed",
+      "composition": "centered"
+    },
+    "design_relevance": 0.8500000000000001,
+    "trending_score": 160,
+    "reference_collected": "2025-09-30T18:56:18.601195",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_graphic_design_5",
+    "platform": "pinterest",
+    "category": "graphic design",
+    "image_url": "https://i.pinimg.com/originals/sample_graphic design_5.jpg",
+    "title": "Stunning graphic design inspiration",
+    "description": "Beautiful example of graphic design with modern aesthetics",
+    "board_name": "graphic design Collection",
+    "pin_stats": {
+      "saves": 250,
+      "comments": 13,
+      "reactions": 40
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#333",
+        "#FFF"
+      ],
+      "style": "detailed",
+      "composition": "asymmetric"
+    },
+    "design_relevance": 0.9,
+    "trending_score": 175,
+    "reference_collected": "2025-09-30T18:56:18.601200",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_graphic_design_6",
+    "platform": "pinterest",
+    "category": "graphic design",
+    "image_url": "https://i.pinimg.com/originals/sample_graphic design_6.jpg",
+    "title": "Stunning graphic design inspiration",
+    "description": "Beautiful example of graphic design with modern aesthetics",
+    "board_name": "graphic design Collection",
+    "pin_stats": {
+      "saves": 270,
+      "comments": 14,
+      "reactions": 43
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#FF6B6B",
+        "#4ECDC4"
+      ],
+      "style": "minimalist",
+      "composition": "centered"
+    },
+    "design_relevance": 0.8,
+    "trending_score": 190,
+    "reference_collected": "2025-09-30T18:56:18.601205",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_graphic_design_7",
+    "platform": "pinterest",
+    "category": "graphic design",
+    "image_url": "https://i.pinimg.com/originals/sample_graphic design_7.jpg",
+    "title": "Stunning graphic design inspiration",
+    "description": "Beautiful example of graphic design with modern aesthetics",
+    "board_name": "graphic design Collection",
+    "pin_stats": {
+      "saves": 290,
+      "comments": 15,
+      "reactions": 46
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#333",
+        "#FFF"
+      ],
+      "style": "detailed",
+      "composition": "asymmetric"
+    },
+    "design_relevance": 0.8500000000000001,
+    "trending_score": 205,
+    "reference_collected": "2025-09-30T18:56:18.601209",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_graphic_design_8",
+    "platform": "pinterest",
+    "category": "graphic design",
+    "image_url": "https://i.pinimg.com/originals/sample_graphic design_8.jpg",
+    "title": "Stunning graphic design inspiration",
+    "description": "Beautiful example of graphic design with modern aesthetics",
+    "board_name": "graphic design Collection",
+    "pin_stats": {
+      "saves": 310,
+      "comments": 16,
+      "reactions": 49
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#FF6B6B",
+        "#4ECDC4"
+      ],
+      "style": "detailed",
+      "composition": "centered"
+    },
+    "design_relevance": 0.9,
+    "trending_score": 220,
+    "reference_collected": "2025-09-30T18:56:18.601214",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_graphic_design_9",
+    "platform": "pinterest",
+    "category": "graphic design",
+    "image_url": "https://i.pinimg.com/originals/sample_graphic design_9.jpg",
+    "title": "Stunning graphic design inspiration",
+    "description": "Beautiful example of graphic design with modern aesthetics",
+    "board_name": "graphic design Collection",
+    "pin_stats": {
+      "saves": 330,
+      "comments": 17,
+      "reactions": 52
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#333",
+        "#FFF"
+      ],
+      "style": "minimalist",
+      "composition": "asymmetric"
+    },
+    "design_relevance": 0.8,
+    "trending_score": 235,
+    "reference_collected": "2025-09-30T18:56:18.601219",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_graphic_design_10",
+    "platform": "pinterest",
+    "category": "graphic design",
+    "image_url": "https://i.pinimg.com/originals/sample_graphic design_10.jpg",
+    "title": "Stunning graphic design inspiration",
+    "description": "Beautiful example of graphic design with modern aesthetics",
+    "board_name": "graphic design Collection",
+    "pin_stats": {
+      "saves": 350,
+      "comments": 18,
+      "reactions": 55
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#FF6B6B",
+        "#4ECDC4"
+      ],
+      "style": "detailed",
+      "composition": "centered"
+    },
+    "design_relevance": 0.8500000000000001,
+    "trending_score": 250,
+    "reference_collected": "2025-09-30T18:56:18.601225",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_graphic_design_11",
+    "platform": "pinterest",
+    "category": "graphic design",
+    "image_url": "https://i.pinimg.com/originals/sample_graphic design_11.jpg",
+    "title": "Stunning graphic design inspiration",
+    "description": "Beautiful example of graphic design with modern aesthetics",
+    "board_name": "graphic design Collection",
+    "pin_stats": {
+      "saves": 370,
+      "comments": 19,
+      "reactions": 58
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#333",
+        "#FFF"
+      ],
+      "style": "detailed",
+      "composition": "asymmetric"
+    },
+    "design_relevance": 0.9,
+    "trending_score": 265,
+    "reference_collected": "2025-09-30T18:56:18.601230",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_logo_design_1",
+    "platform": "pinterest",
+    "category": "logo design",
+    "image_url": "https://i.pinimg.com/originals/sample_logo design_1.jpg",
+    "title": "Stunning logo design inspiration",
+    "description": "Beautiful example of logo design with modern aesthetics",
+    "board_name": "logo design Collection",
+    "pin_stats": {
+      "saves": 170,
+      "comments": 9,
+      "reactions": 28
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#333",
+        "#FFF"
+      ],
+      "style": "detailed",
+      "composition": "asymmetric"
+    },
+    "design_relevance": 0.8500000000000001,
+    "trending_score": 115,
+    "reference_collected": "2025-09-30T18:56:18.601239",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_logo_design_2",
+    "platform": "pinterest",
+    "category": "logo design",
+    "image_url": "https://i.pinimg.com/originals/sample_logo design_2.jpg",
+    "title": "Stunning logo design inspiration",
+    "description": "Beautiful example of logo design with modern aesthetics",
+    "board_name": "logo design Collection",
+    "pin_stats": {
+      "saves": 190,
+      "comments": 10,
+      "reactions": 31
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#FF6B6B",
+        "#4ECDC4"
+      ],
+      "style": "detailed",
+      "composition": "centered"
+    },
+    "design_relevance": 0.9,
+    "trending_score": 130,
+    "reference_collected": "2025-09-30T18:56:18.601243",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_logo_design_3",
+    "platform": "pinterest",
+    "category": "logo design",
+    "image_url": "https://i.pinimg.com/originals/sample_logo design_3.jpg",
+    "title": "Stunning logo design inspiration",
+    "description": "Beautiful example of logo design with modern aesthetics",
+    "board_name": "logo design Collection",
+    "pin_stats": {
+      "saves": 210,
+      "comments": 11,
+      "reactions": 34
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#333",
+        "#FFF"
+      ],
+      "style": "minimalist",
+      "composition": "asymmetric"
+    },
+    "design_relevance": 0.8,
+    "trending_score": 145,
+    "reference_collected": "2025-09-30T18:56:18.601247",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_logo_design_4",
+    "platform": "pinterest",
+    "category": "logo design",
+    "image_url": "https://i.pinimg.com/originals/sample_logo design_4.jpg",
+    "title": "Stunning logo design inspiration",
+    "description": "Beautiful example of logo design with modern aesthetics",
+    "board_name": "logo design Collection",
+    "pin_stats": {
+      "saves": 230,
+      "comments": 12,
+      "reactions": 37
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#FF6B6B",
+        "#4ECDC4"
+      ],
+      "style": "detailed",
+      "composition": "centered"
+    },
+    "design_relevance": 0.8500000000000001,
+    "trending_score": 160,
+    "reference_collected": "2025-09-30T18:56:18.601250",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_logo_design_5",
+    "platform": "pinterest",
+    "category": "logo design",
+    "image_url": "https://i.pinimg.com/originals/sample_logo design_5.jpg",
+    "title": "Stunning logo design inspiration",
+    "description": "Beautiful example of logo design with modern aesthetics",
+    "board_name": "logo design Collection",
+    "pin_stats": {
+      "saves": 250,
+      "comments": 13,
+      "reactions": 40
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#333",
+        "#FFF"
+      ],
+      "style": "detailed",
+      "composition": "asymmetric"
+    },
+    "design_relevance": 0.9,
+    "trending_score": 175,
+    "reference_collected": "2025-09-30T18:56:18.601254",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_logo_design_6",
+    "platform": "pinterest",
+    "category": "logo design",
+    "image_url": "https://i.pinimg.com/originals/sample_logo design_6.jpg",
+    "title": "Stunning logo design inspiration",
+    "description": "Beautiful example of logo design with modern aesthetics",
+    "board_name": "logo design Collection",
+    "pin_stats": {
+      "saves": 270,
+      "comments": 14,
+      "reactions": 43
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#FF6B6B",
+        "#4ECDC4"
+      ],
+      "style": "minimalist",
+      "composition": "centered"
+    },
+    "design_relevance": 0.8,
+    "trending_score": 190,
+    "reference_collected": "2025-09-30T18:56:18.601258",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_logo_design_7",
+    "platform": "pinterest",
+    "category": "logo design",
+    "image_url": "https://i.pinimg.com/originals/sample_logo design_7.jpg",
+    "title": "Stunning logo design inspiration",
+    "description": "Beautiful example of logo design with modern aesthetics",
+    "board_name": "logo design Collection",
+    "pin_stats": {
+      "saves": 290,
+      "comments": 15,
+      "reactions": 46
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#333",
+        "#FFF"
+      ],
+      "style": "detailed",
+      "composition": "asymmetric"
+    },
+    "design_relevance": 0.8500000000000001,
+    "trending_score": 205,
+    "reference_collected": "2025-09-30T18:56:18.601261",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_logo_design_8",
+    "platform": "pinterest",
+    "category": "logo design",
+    "image_url": "https://i.pinimg.com/originals/sample_logo design_8.jpg",
+    "title": "Stunning logo design inspiration",
+    "description": "Beautiful example of logo design with modern aesthetics",
+    "board_name": "logo design Collection",
+    "pin_stats": {
+      "saves": 310,
+      "comments": 16,
+      "reactions": 49
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#FF6B6B",
+        "#4ECDC4"
+      ],
+      "style": "detailed",
+      "composition": "centered"
+    },
+    "design_relevance": 0.9,
+    "trending_score": 220,
+    "reference_collected": "2025-09-30T18:56:18.601265",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_logo_design_9",
+    "platform": "pinterest",
+    "category": "logo design",
+    "image_url": "https://i.pinimg.com/originals/sample_logo design_9.jpg",
+    "title": "Stunning logo design inspiration",
+    "description": "Beautiful example of logo design with modern aesthetics",
+    "board_name": "logo design Collection",
+    "pin_stats": {
+      "saves": 330,
+      "comments": 17,
+      "reactions": 52
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#333",
+        "#FFF"
+      ],
+      "style": "minimalist",
+      "composition": "asymmetric"
+    },
+    "design_relevance": 0.8,
+    "trending_score": 235,
+    "reference_collected": "2025-09-30T18:56:18.601275",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_logo_design_10",
+    "platform": "pinterest",
+    "category": "logo design",
+    "image_url": "https://i.pinimg.com/originals/sample_logo design_10.jpg",
+    "title": "Stunning logo design inspiration",
+    "description": "Beautiful example of logo design with modern aesthetics",
+    "board_name": "logo design Collection",
+    "pin_stats": {
+      "saves": 350,
+      "comments": 18,
+      "reactions": 55
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#FF6B6B",
+        "#4ECDC4"
+      ],
+      "style": "detailed",
+      "composition": "centered"
+    },
+    "design_relevance": 0.8500000000000001,
+    "trending_score": 250,
+    "reference_collected": "2025-09-30T18:56:18.601279",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "pinterest_logo_design_11",
+    "platform": "pinterest",
+    "category": "logo design",
+    "image_url": "https://i.pinimg.com/originals/sample_logo design_11.jpg",
+    "title": "Stunning logo design inspiration",
+    "description": "Beautiful example of logo design with modern aesthetics",
+    "board_name": "logo design Collection",
+    "pin_stats": {
+      "saves": 370,
+      "comments": 19,
+      "reactions": 58
+    },
+    "visual_features": {
+      "dominant_colors": [
+        "#333",
+        "#FFF"
+      ],
+      "style": "detailed",
+      "composition": "asymmetric"
+    },
+    "design_relevance": 0.9,
+    "trending_score": 265,
+    "reference_collected": "2025-09-30T18:56:18.601284",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "dribbble_ref_1",
+    "platform": "dribbble",
+    "title": "Modern Logo Design 1",
+    "description": "Clean, minimalist logo design with modern typography",
+    "image_url": "https://cdn.dribbble.com/users/sample/shots/1/shot.png",
+    "author": "designer_1",
+    "tags": [
+      "logo",
+      "branding",
+      "minimalist",
+      "typography"
+    ],
+    "stats": {
+      "views": 2600,
+      "likes": 190,
+      "saves": 50
+    },
+    "color_palette": [
+      "#FF6B6B",
+      "#4ECDC4",
+      "#45B7D1"
+    ],
+    "design_type": "logo_design",
+    "style": "minimalist",
+    "created_date": "2025-09-29T18:56:18.601304",
+    "reference_collected": "2025-09-30T18:56:18.601315",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "dribbble_ref_2",
+    "platform": "dribbble",
+    "title": "Modern Logo Design 2",
+    "description": "Clean, minimalist logo design with modern typography",
+    "image_url": "https://cdn.dribbble.com/users/sample/shots/2/shot.png",
+    "author": "designer_2",
+    "tags": [
+      "logo",
+      "branding",
+      "minimalist",
+      "typography"
+    ],
+    "stats": {
+      "views": 2700,
+      "likes": 200,
+      "saves": 55
+    },
+    "color_palette": [
+      "#FF6B6B",
+      "#4ECDC4",
+      "#45B7D1"
+    ],
+    "design_type": "logo_design",
+    "style": "minimalist",
+    "created_date": "2025-09-28T18:56:18.601319",
+    "reference_collected": "2025-09-30T18:56:18.601321",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "dribbble_ref_3",
+    "platform": "dribbble",
+    "title": "Modern Logo Design 3",
+    "description": "Clean, minimalist logo design with modern typography",
+    "image_url": "https://cdn.dribbble.com/users/sample/shots/3/shot.png",
+    "author": "designer_3",
+    "tags": [
+      "logo",
+      "branding",
+      "minimalist",
+      "typography"
+    ],
+    "stats": {
+      "views": 2800,
+      "likes": 210,
+      "saves": 60
+    },
+    "color_palette": [
+      "#FF6B6B",
+      "#4ECDC4",
+      "#45B7D1"
+    ],
+    "design_type": "logo_design",
+    "style": "minimalist",
+    "created_date": "2025-09-27T18:56:18.601325",
+    "reference_collected": "2025-09-30T18:56:18.601327",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "dribbble_ref_4",
+    "platform": "dribbble",
+    "title": "Modern Logo Design 4",
+    "description": "Clean, minimalist logo design with modern typography",
+    "image_url": "https://cdn.dribbble.com/users/sample/shots/4/shot.png",
+    "author": "designer_4",
+    "tags": [
+      "logo",
+      "branding",
+      "minimalist",
+      "typography"
+    ],
+    "stats": {
+      "views": 2900,
+      "likes": 220,
+      "saves": 65
+    },
+    "color_palette": [
+      "#FF6B6B",
+      "#4ECDC4",
+      "#45B7D1"
+    ],
+    "design_type": "logo_design",
+    "style": "minimalist",
+    "created_date": "2025-09-26T18:56:18.601331",
+    "reference_collected": "2025-09-30T18:56:18.601333",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "dribbble_ref_5",
+    "platform": "dribbble",
+    "title": "Modern Logo Design 5",
+    "description": "Clean, minimalist logo design with modern typography",
+    "image_url": "https://cdn.dribbble.com/users/sample/shots/5/shot.png",
+    "author": "designer_5",
+    "tags": [
+      "logo",
+      "branding",
+      "minimalist",
+      "typography"
+    ],
+    "stats": {
+      "views": 3000,
+      "likes": 230,
+      "saves": 70
+    },
+    "color_palette": [
+      "#FF6B6B",
+      "#4ECDC4",
+      "#45B7D1"
+    ],
+    "design_type": "logo_design",
+    "style": "minimalist",
+    "created_date": "2025-09-25T18:56:18.601337",
+    "reference_collected": "2025-09-30T18:56:18.601339",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "dribbble_ref_6",
+    "platform": "dribbble",
+    "title": "Modern Logo Design 6",
+    "description": "Clean, minimalist logo design with modern typography",
+    "image_url": "https://cdn.dribbble.com/users/sample/shots/6/shot.png",
+    "author": "designer_6",
+    "tags": [
+      "logo",
+      "branding",
+      "minimalist",
+      "typography"
+    ],
+    "stats": {
+      "views": 3100,
+      "likes": 240,
+      "saves": 75
+    },
+    "color_palette": [
+      "#FF6B6B",
+      "#4ECDC4",
+      "#45B7D1"
+    ],
+    "design_type": "logo_design",
+    "style": "minimalist",
+    "created_date": "2025-09-24T18:56:18.601342",
+    "reference_collected": "2025-09-30T18:56:18.601345",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "dribbble_ref_7",
+    "platform": "dribbble",
+    "title": "Modern Logo Design 7",
+    "description": "Clean, minimalist logo design with modern typography",
+    "image_url": "https://cdn.dribbble.com/users/sample/shots/7/shot.png",
+    "author": "designer_7",
+    "tags": [
+      "logo",
+      "branding",
+      "minimalist",
+      "typography"
+    ],
+    "stats": {
+      "views": 3200,
+      "likes": 250,
+      "saves": 80
+    },
+    "color_palette": [
+      "#FF6B6B",
+      "#4ECDC4",
+      "#45B7D1"
+    ],
+    "design_type": "logo_design",
+    "style": "minimalist",
+    "created_date": "2025-09-23T18:56:18.601348",
+    "reference_collected": "2025-09-30T18:56:18.601351",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "dribbble_ref_8",
+    "platform": "dribbble",
+    "title": "Modern Logo Design 8",
+    "description": "Clean, minimalist logo design with modern typography",
+    "image_url": "https://cdn.dribbble.com/users/sample/shots/8/shot.png",
+    "author": "designer_8",
+    "tags": [
+      "logo",
+      "branding",
+      "minimalist",
+      "typography"
+    ],
+    "stats": {
+      "views": 3300,
+      "likes": 260,
+      "saves": 85
+    },
+    "color_palette": [
+      "#FF6B6B",
+      "#4ECDC4",
+      "#45B7D1"
+    ],
+    "design_type": "logo_design",
+    "style": "minimalist",
+    "created_date": "2025-09-22T18:56:18.601354",
+    "reference_collected": "2025-09-30T18:56:18.601356",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "dribbble_ref_9",
+    "platform": "dribbble",
+    "title": "Modern Logo Design 9",
+    "description": "Clean, minimalist logo design with modern typography",
+    "image_url": "https://cdn.dribbble.com/users/sample/shots/9/shot.png",
+    "author": "designer_9",
+    "tags": [
+      "logo",
+      "branding",
+      "minimalist",
+      "typography"
+    ],
+    "stats": {
+      "views": 3400,
+      "likes": 270,
+      "saves": 90
+    },
+    "color_palette": [
+      "#FF6B6B",
+      "#4ECDC4",
+      "#45B7D1"
+    ],
+    "design_type": "logo_design",
+    "style": "minimalist",
+    "created_date": "2025-09-21T18:56:18.601360",
+    "reference_collected": "2025-09-30T18:56:18.601362",
+    "fetch_status": "pending"
+  },
+  {
+    "id": "dribbble_ref_10",
+    "platform": "dribbble",
+    "title": "Modern Logo Design 10",
+    "description": "Clean, minimalist logo design with modern typography",
+    "image_url": "https://cdn.dribbble.com/users/sample/shots/10/shot.png",
+    "author": "designer_10",
+    "tags": [
+      "logo",
+      "branding",
+      "minimalist",
+      "typography"
+    ],
+    "stats": {
+      "views": 3500,
+      "likes": 280,
+      "saves": 95
+    },
+    "color_palette": [
+      "#FF6B6B",
+      "#4ECDC4",
+      "#45B7D1"
+    ],
+    "design_type": "logo_design",
+    "style": "minimalist",
+    "created_date": "2025-09-20T18:56:18.601366",
+    "reference_collected": "2025-09-30T18:56:18.601368",
+    "fetch_status": "pending"
+  }
+]

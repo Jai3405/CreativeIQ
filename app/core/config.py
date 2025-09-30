@@ -45,6 +45,17 @@ class Settings(BaseSettings):
     LAYOUT_ACCURACY: float = 0.89
     BRAND_CONSISTENCY_ACCURACY: float = 0.86
 
+    # Environment
+    ENV: Optional[str] = None
+
+    # Live Visual RAG API Tokens - Real-time Design Search
+    DRIBBBLE_ACCESS_TOKEN: Optional[str] = None  # Public API for design search
+    BEHANCE_API_KEY: Optional[str] = None        # Adobe API for project search
+
+    # Deprecated: Social Media APIs (replaced by Live RAG)
+    # INSTAGRAM_ACCESS_TOKEN: Optional[str] = None
+    # PINTEREST_ACCESS_TOKEN: Optional[str] = None
+
     class Config:
         env_file = ".env"
         case_sensitive = True
