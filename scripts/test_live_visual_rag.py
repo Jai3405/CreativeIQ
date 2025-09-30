@@ -51,6 +51,8 @@ async def main():
             print(f"  Top result: '{sample_design['title']}' by {sample_design['author']}")
             print(f"  Platform: {sample_design['platform']}")
             print(f"  Stats: {sample_design['stats']['likes']} likes, {sample_design['stats']['views']} views")
+            if 'clip_similarity' in sample_design:
+                print(f"  🎯 CLIP similarity: {sample_design['clip_similarity']:.3f}")
 
         recommendations = logo_result['recommendations']
         print(f"\n💡 AI Recommendations:")
@@ -86,6 +88,11 @@ async def main():
 
         if social_result['retrieved_designs']:
             print(f"  Retrieved {len(social_result['retrieved_designs'])} similar designs")
+            # Show top 3 CLIP similarities if available
+            top_designs = social_result['retrieved_designs'][:3]
+            for i, design in enumerate(top_designs, 1):
+                if 'clip_similarity' in design:
+                    print(f"    #{i}: {design['title'][:50]}... (CLIP: {design['clip_similarity']:.3f})")
 
         print(f"\n📊 Performance Benchmarks:")
         benchmark = social_result['recommendations'].get('engagement_benchmark', {})
@@ -128,14 +135,14 @@ async def main():
     print(f"  ✅ Real-time design trend analysis")
     print(f"  ✅ Professional design platform integration")
     print(f"  ✅ Data-driven performance recommendations")
-    print(f"  ✅ Visual similarity ranking (CLIP integration ready)")
+    print(f"  ✅ CLIP-powered visual similarity ranking (ACTIVE)")
     print(f"  ✅ Multi-platform parallel search")
 
     print(f"\n🔧 Architecture Highlights:")
     print(f"  • VLM analysis for style/color/type extraction")
     print(f"  • Smart query generation from design features")
     print(f"  • Async parallel API searches (Dribbble + Unsplash)")
-    print(f"  • Real-time similarity ranking")
+    print(f"  • CLIP embeddings for precise visual similarity")
     print(f"  • Comparative analysis with professional designs")
 
     print(f"\n💡 Perfect for Computer Vision Course:")

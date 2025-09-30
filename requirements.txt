@@ -9,7 +9,7 @@ torchvision==0.16.0
 transformers==4.35.2
 huggingface-hub==0.19.4
 accelerate==0.24.1
-clip-by-openai==1.0
+git+https://github.com/openai/CLIP.git
 
 # Computer Vision
 opencv-python==4.8.1.78

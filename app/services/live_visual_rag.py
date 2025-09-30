@@ -12,6 +12,11 @@ import io
 from datetime import datetime
 import json
 from pathlib import Path
+import torch
+import clip
+import numpy as np
+from urllib.parse import urlparse
+import requests
 
 from app.core.config import settings
 
@@ -32,7 +37,12 @@ class LiveVisualRAG:
         self.dribbble_base = "https://api.dribbble.com/v2"
         self.unsplash_base = "https://api.unsplash.com"
 
-        logger.info("🔴 Live Visual RAG initialized - Real-time design search enabled")
+        # Initialize CLIP model for visual similarity
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.clip_model, self.clip_preprocess = clip.load("ViT-B/32", device=self.device)
+
+        logger.info(f"🔴 Live Visual RAG initialized - Real-time design search enabled")
+        logger.info(f"🎯 CLIP model loaded on {self.device} for visual similarity ranking")
 
     async def analyze_and_retrieve(self,
                                  user_image: Image.Image,
@@ -282,21 +292,107 @@ class LiveVisualRAG:
                                        designs: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """
         Use CLIP embeddings to rank designs by visual similarity to user's image
-        TODO: Implement CLIP model for visual similarity scoring
         """
-        # Placeholder: For now, return designs sorted by engagement
-        # This will be replaced with actual CLIP similarity scoring
+        logger.info(f"🎯 Computing CLIP similarity for {len(designs)} designs...")
 
-        def engagement_score(design):
-            stats = design.get("stats", {})
-            likes = stats.get("likes", 0)
-            views = stats.get("views", 1)  # Avoid division by zero
-            return likes / max(views, 1) * 1000  # Engagement rate * 1000
+        # Get CLIP embedding for user's image
+        user_embedding = await self._get_clip_embedding(user_image)
 
-        sorted_designs = sorted(designs, key=engagement_score, reverse=True)
+        # Calculate similarity scores for each design
+        design_similarities = []
 
-        logger.info(f"📊 Ranked {len(sorted_designs)} designs by engagement (CLIP ranking coming soon)")
+        for design in designs:
+            try:
+                # Download and process design image
+                design_image = await self._download_image(design.get("image_url") or design.get("thumbnail_url"))
+                if design_image:
+                    design_embedding = await self._get_clip_embedding(design_image)
+
+                    # Calculate cosine similarity
+                    similarity_score = float(torch.cosine_similarity(user_embedding, design_embedding, dim=0))
+
+                    # Add similarity score to design metadata
+                    design["clip_similarity"] = similarity_score
+                    design_similarities.append((design, similarity_score))
+                else:
+                    # Fallback to engagement score if image download fails
+                    engagement = self._calculate_engagement_score(design)
+                    design["clip_similarity"] = 0.0
+                    design_similarities.append((design, engagement * 0.01))  # Lower weight for fallback
+
+            except Exception as e:
+                logger.warning(f"CLIP similarity failed for design {design.get('id', 'unknown')}: {e}")
+                # Fallback to engagement score
+                engagement = self._calculate_engagement_score(design)
+                design["clip_similarity"] = 0.0
+                design_similarities.append((design, engagement * 0.01))
+
+        # Sort by similarity score (highest first)
+        design_similarities.sort(key=lambda x: x[1], reverse=True)
+        sorted_designs = [design for design, _ in design_similarities]
+
+        # Log similarity stats
+        if design_similarities:
+            top_similarity = design_similarities[0][1]
+            avg_similarity = np.mean([score for _, score in design_similarities])
+            logger.info(f"✅ CLIP ranking complete - Top similarity: {top_similarity:.3f}, Average: {avg_similarity:.3f}")
+
         return sorted_designs
+
+    async def _get_clip_embedding(self, image: Image.Image) -> torch.Tensor:
+        """
+        Get CLIP embedding for an image
+        """
+        # Preprocess image for CLIP
+        image_tensor = self.clip_preprocess(image).unsqueeze(0).to(self.device)
+
+        # Get embedding
+        with torch.no_grad():
+            image_embedding = self.clip_model.encode_image(image_tensor)
+            # Normalize embedding
+            image_embedding = image_embedding / image_embedding.norm(dim=-1, keepdim=True)
+
+        return image_embedding.squeeze(0)
+
+    async def _download_image(self, image_url: str) -> Optional[Image.Image]:
+        """
+        Download and return PIL Image from URL
+        """
+        if not image_url:
+            return None
+
+        try:
+            # Use requests for simple download (async version would be better for production)
+            response = requests.get(image_url, timeout=10, headers={
+                'User-Agent': 'CreativeIQ/1.0 (Design Analysis Bot)'
+            })
+
+            if response.status_code == 200:
+                image = Image.open(io.BytesIO(response.content))
+                # Convert to RGB if needed
+                if image.mode != 'RGB':
+                    image = image.convert('RGB')
+                return image
+            else:
+                logger.warning(f"Failed to download image: {response.status_code}")
+                return None
+
+        except Exception as e:
+            logger.warning(f"Image download error: {e}")
+            return None
+
+    def _calculate_engagement_score(self, design: Dict[str, Any]) -> float:
+        """
+        Calculate engagement score as fallback metric
+        """
+        stats = design.get("stats", {})
+        likes = stats.get("likes", 0)
+        views = stats.get("views", 1)
+        downloads = stats.get("downloads", 0)
+
+        # Weighted engagement score
+        engagement = (likes * 1.0 + downloads * 0.5) / max(views, 1) * 1000
+        return engagement
 
     async def _generate_data_driven_recommendations(self,
                                                   user_analysis: Dict[str, Any],
